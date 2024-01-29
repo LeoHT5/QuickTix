@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>QuickTix</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;400;700&display=swap" rel="stylesheet">
+
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/bootstrap-icons.css}" rel="stylesheet">
+    <link th:href="@{/css/template-ticket.css}" rel="stylesheet">
+
+</head>
+
+<body>
+    <main>
+        <div th:insert="~{/layout/administrador/template_admin.html::header}">
+
+        </div>
+
+        <div class="container">
+            <!-- MENSAJES -->
+            <div class="alert alert-success alert-dismissable fade show" role="alert" th:if="${success != null}">
+                <strong th:text="${success}"></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div class="alert alert-danger alert-dismissable fade show" th:if="${error != null}">
+                <strong th:text="${error}"></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div class="alert alert-warning alert-dismissable fade show" th:if="${warning != null}">
+                <strong th:text="${warning}"></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div class="alert alert-info alert-dismissable fade show" th:if="${info != null}">
+                <strong th:text="${info}"></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+
+
+        <div class="container" style="margin-top: 150px;">
+
+            <h2 th:if="${listaUsuarios.isEmpty()}">No hay Usuarios</h2>
+            <div th:if="${!listaUsuarios.isEmpty()}">
+                <h2>Usuarios</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Telefono</th>
+                            <th>Correo</th>
+                            <th>Contraseña</th>
+                            <th>Rol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="usuario : ${listaUsuarios}">
+                            <td th:text=${usuario.nombre}></td>
+                            <td th:text=${usuario.apellido}></td>
+                            <td th:text=${usuario.telefono}></td>
+                            <td th:text=${usuario.correo}></td>
+                            <td th:text=${usuario.password}></td>
+                            <td th:text="${usuario.Role.name()}"></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </main>
+
+    <div th:insert="~{/layout/administrador/template_admin.html::footer}">
+
+    </div>
+
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/jquery.sticky.js}"></script>
+    <script th:src="@{/js/click-scroll.js}"></script>
+    <script th:src="@{/js/custom.js}"></script>
+    </div>
+</body>
+
+</html>
