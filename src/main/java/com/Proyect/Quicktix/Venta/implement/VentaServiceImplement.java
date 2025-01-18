@@ -1,11 +1,11 @@
-package com.Proyect.Quicktix.Usuario.implement;
+package com.Proyect.Quicktix.Venta.implement;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.Proyect.Quicktix.Usuario.models.Venta;
-import com.Proyect.Quicktix.Usuario.repository.IVentaRepository;
-import com.Proyect.Quicktix.Usuario.service.IVentaService;
+import com.Proyect.Quicktix.Venta.models.Venta;
+import com.Proyect.Quicktix.Venta.repository.IVentaRepository;
+import com.Proyect.Quicktix.Venta.service.IVentaService;
 
 import lombok.AllArgsConstructor;
 

@@ -1,31 +1,66 @@
 package com.Proyect.Quicktix.Evento.models;
 
-import java.io.Serializable;
+import java.util.Date;
+
+import com.Proyect.Quicktix.Evento.utils.PedidoEnums;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name = "tb_evento")
-public class Evento implements Serializable {
+public class Evento {
 
   @Id
   @GeneratedValue
-  @Column(name = "evento_id")
-  private int id;
+  @Column(name = "id_evento")
+  private int id_evento;
 
   @Column(name = "nombre")
-  @Pattern(regexp = "[a-zA-Z ]{3,100}")
   private String nombre;
+
+  @Column
+  private String descripcion;
+
+  @Column(name = "fecha")
+  private Date fecha;
+
+  @Column(name = "hora")
+  private Date hora;
+
+  @Column(name = "precio")
+  private double precioBase;
+
+  @Column(name = "estado")
+  @Enumerated(EnumType.STRING)
+  private PedidoEnums estado;
+
+  @Column(name = "ubicacion")
+  private String ubicacion;
+
+  @Column(name = "capacidad")
+  private int capacidadTotal;
+
+  @Column(name = "fecha_fin_venta")
+  private Date fechaInicioVenta;
+
+  @Column(name = "fecha_fin_venta")
+  private Date fechaFinVenta;
+
+  @ManyToOne
+  @JoinColumn(name = "duracion_id", nullable = false)
+  @NotNull
+  private Duracion duracion;
 
   @ManyToOne
   @JoinColumn(name = "genero_id", nullable = false)
@@ -37,17 +72,4 @@ public class Evento implements Serializable {
   @NotNull
   private Tamanio tamanio;
 
-  @Column(name = "fecha")
-  private String fecha;
-
-  @Column(name = "hora")
-  private String hora;
-
-  @Column(name = "ubicacion")
-  private String ubicacion;
-
-  @ManyToOne
-  @JoinColumn(name = "duracion_id", nullable = false)
-  @NotNull
-  private Duracion duracion;
 }

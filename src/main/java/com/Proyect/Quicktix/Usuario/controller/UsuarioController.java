@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.Proyect.Quicktix.Usuario.models.Role;
 import com.Proyect.Quicktix.Usuario.models.Usuario;
 import com.Proyect.Quicktix.Usuario.service.IUsuarioService;
+import com.Proyect.Quicktix.Usuario.utils.RoleEnums;
 
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -40,7 +40,7 @@ public class UsuarioController {
   @GetMapping("/login")
   public String login(Model model) {
     model.addAttribute("usuario", new Usuario());
-    usuario.setRole(Role.ADMIN);
+    usuario.setRole(RoleEnums.ADMIN);
     return "layout/login";
   }
 
@@ -50,7 +50,7 @@ public class UsuarioController {
     if (id != null && id != 0) {
       model.addAttribute("usuario", usuarioService.obtener(id));
     } else {
-      usuario.setRole(Role.USER);
+      usuario.setRole(RoleEnums.USER);
       model.addAttribute("usuario", new Usuario());
     }
     return "layout/registrar";

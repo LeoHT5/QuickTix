@@ -1,6 +1,6 @@
-package com.Proyect.Quicktix.Usuario.service;
+package com.Proyect.Quicktix.Venta.service;
 
-import com.Proyect.Quicktix.Usuario.models.Venta;
+import com.Proyect.Quicktix.Venta.models.Venta;
 
 public interface IVentaService {
 

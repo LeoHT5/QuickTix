@@ -1,7 +1,5 @@
 package com.Proyect.Quicktix.Evento.models;
 
-import java.io.Serializable;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,14 +11,17 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "tb_duracion")
-public class Duracion implements Serializable {
+public class Duracion {
 
   @Id
   @GeneratedValue
   @Column(name = "duracion_id")
   private int id;
 
-  @Column(name = "descripcion")
   @NotEmpty
+  @Column(name = "descripcion")
   private String descripcion;
+
+  @Column(name = "estado")
+  private boolean estado;
 }

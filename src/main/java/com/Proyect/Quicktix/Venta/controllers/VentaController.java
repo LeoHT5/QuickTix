@@ -1,4 +1,4 @@
-package com.Proyect.Quicktix.Usuario.controller;
+package com.Proyect.Quicktix.Venta.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.Proyect.Quicktix.Evento.service.IEventoService;
-import com.Proyect.Quicktix.Usuario.models.Venta;
-import com.Proyect.Quicktix.Usuario.service.IVentaService;
+import com.Proyect.Quicktix.Venta.models.Venta;
+import com.Proyect.Quicktix.Venta.service.IVentaService;
 
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;

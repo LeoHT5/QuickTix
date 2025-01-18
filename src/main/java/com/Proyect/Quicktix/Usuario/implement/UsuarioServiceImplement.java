@@ -6,10 +6,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.Proyect.Quicktix.Usuario.models.Role;
 import com.Proyect.Quicktix.Usuario.models.Usuario;
 import com.Proyect.Quicktix.Usuario.repository.IUsuarioRepository;
 import com.Proyect.Quicktix.Usuario.service.IUsuarioService;
+import com.Proyect.Quicktix.Usuario.utils.RoleEnums;
 
 import lombok.AllArgsConstructor;
 
@@ -56,7 +56,7 @@ public class UsuarioServiceImplement implements IUsuarioService {
     if (optionalUsuario.isPresent()) {
       Usuario usuario = optionalUsuario.get();
 
-      if (password.equals(usuario.getPassword()) && Role.ADMIN.equals(usuario.getRole())) {
+      if (password.equals(usuario.getPassword()) && RoleEnums.ADMIN.equals(usuario.getRole())) {
         currentUser = usuario;
         return usuario;
       }
@@ -69,7 +69,7 @@ public class UsuarioServiceImplement implements IUsuarioService {
     if (currentUser != null) {
       System.out.println("currentUser: " + currentUser);
       System.out.println("Role: " + currentUser.getRole());
-      return Role.ADMIN.equals(currentUser.getRole());
+      return RoleEnums.ADMIN.equals(currentUser.getRole());
     }
     return false;
   }

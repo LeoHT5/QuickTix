@@ -82,7 +82,7 @@ public class EventoServiceImplement implements IEventoService, IDuracionService,
   @Override
   public List<EventoDTO> listarNombre() {
     List<Evento> eventos = eventoRepository.findAll();
-    return eventos.stream().map(evento -> new EventoDTO(evento.getId(), evento.getNombre()))
+    return eventos.stream().map(evento -> new EventoDTO(evento.getId_evento(), evento.getNombre()))
         .collect(Collectors.toList());
   }
 
