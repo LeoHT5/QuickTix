@@ -1,0 +1,140 @@
+<!<!DOCTYPE html>
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Quicktix</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;400;700&display=swap" rel="stylesheet">
+
+        <link href="css/templatemo-festava-live.css" rel="stylesheet">
+        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+        <link th:href="@{/css/bootstrap-icons.css}" rel="stylesheet">
+        <link th:href="@{/css/template-ticket.css}" rel="stylesheet">
+
+
+    </head>
+
+    <body>
+        <main>
+            <div th:insert="~{/layout/template_user.html::header}">
+
+            </div>
+
+            <section class="ticket-section section-padding">
+                <div class="section-overlay"></div>
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-10 mx-auto">
+
+                            <h2 class="text-center mb-4">Comenzar</h2>
+
+                            <form th:action="@{/venta}" class="custom-form ticket-form mb-5 mb-lg-0"
+                                th:object="${venta}" method="post">
+
+                                <input type="hidden" th:field="*{id}" id="id" name="id" />
+
+                                <div class="ticket-form-body">
+
+                                    <input type="text" name="nombre" id="nombre" class="form-control"
+                                        placeholder="Nombre Completo" required th:field="*{nombre}">
+                                    <small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}"
+                                        th:errors="*{nombre}">
+                                    </small>
+
+                                    <input type="text" name="correo" id="correo" pattern="[^ @]*@[^  @]*"
+                                        class="form-control" placeholder="Correo electronico" required
+                                        th:field="*{correo}">
+                                    <small class="form-text text-danger" th:if="${#fields.hasErrors('correo')}"
+                                        th:errors="*{correo}">
+                                    </small>
+
+                                    <input type="text" class="form-control" name="telefono" placeholder="telefono"
+                                        required th:field="*{telefono}">
+                                    <small class="form-text text-danger" th:if="${#fields.hasErrors('telefono')}"
+                                        th:errors="*{telefono}">
+                                    </small>
+
+                                    <h6>Elija tipo de Ticket</h6>
+                                    <!--<input type="text" name="tipo" id="tipo" class="form-control" placeholder="Tipo" required th:field="*{tipo}">
+                                    <small class="form-text text-danger"
+                                    th:if="${#fields.hasErrors('tipo')}" th:errors="*{tipo}">
+                                    </small>-->
+
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <div class="form-check form-control">
+                                                <input class="form-check-input" type="radio" name="tipo"
+                                                    id="flexRadioDefault1" value="Estandar">
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    Estandar S/ 120.00
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <div class="form-check form-check-radio form-control">
+                                                <input class="form-check-input" type="radio" name="tipo"
+                                                    id="flexRadioDefault2" value="Premium">
+                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                    Premium S/ 240.00
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <input type="number" name="cantidad" id="cantidad" class="form-control"
+                                        placeholder="Número de ticket" required th:field="*{cantidad}">
+                                    <small class="form-text text-danger" th:if="${#fields.hasErrors('cantidad')}"
+                                        th:errors="*{cantidad}">
+                                    </small>
+
+                                    <!--  <textarea name="ticket-form-message" rows="3" class="form-control" id="ticket-form-message" placeholder="Evento"></textarea>-->
+
+                                    <div class="form-group">
+                                        <select th:field="*{evento}" class="form-control" id="evento">
+                                            <option value="">Evento</option>
+                                            <option th:each="evento:${listaEvento}" th:value="${evento.id}"
+                                                th:text="${evento.nombre}" />
+                                        </select>
+                                        <small class="form-text text-danger" th:if="${#fields.hasErrors('evento')}"
+                                            th:errors="*{evento}">
+                                        </small>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-10 col-8 mx-auto">
+                                        <button type="submit" class="form-control">Comprar Ticket</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+            </section>
+        </main>
+
+
+
+        <div th:insert="~{/layout/template_user.html::footer}">
+
+        </div>
+
+        <script th:src="@{/js/jquery.min.js}"></script>
+        <script th:src="@{/js/bootstrap.min.js}"></script>
+        <script th:src="@{/js/jquery.sticky.js}"></script>
+        <script th:src="@{/js/click-scroll.js}"></script>
+        <script th:src="@{/js/custom.js}"></script>
+
+    </body>
+
+    </html>

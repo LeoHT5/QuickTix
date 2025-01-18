@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quicktix</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;400;700&display=swap" rel="stylesheet">
+
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/bootstrap-icons.css}" rel="stylesheet">
+    <link th:href="@{/css/template-ticket.css}" rel="stylesheet">
+
+</head>
+
+<body>
+    <main>
+        <div th:insert="~{/layout/administrador/template_admin.html::header}">
+
+        </div>
+
+        <div class="container">
+            <!-- MENSAJES -->
+            <div class="alert alert-success alert-dismissable fade show" role="alert" th:if="${success != null}">
+                <strong th:text="${success}"></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div class="alert alert-danger alert-dismissable fade show" th:if="${error != null}">
+                <strong th:text="${error}"></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div class="alert alert-warning alert-dismissable fade show" th:if="${warning != null}">
+                <strong th:text="${warning}"></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div class="alert alert-info alert-dismissable fade show" th:if="${info != null}">
+                <strong th:text="${info}"></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+
+
+        <div class="container">
+
+            <br>
+            <div class="btn-register">
+                <a href="/registrarEvento/0" class="btn btn-primary">Crear Evento</a>
+            </div>
+            <br>
+            <h2 th:if="${listaEvento.isEmpty()}">No hay Evento</h2>
+            <div th:if="${!listaEvento.isEmpty()}">
+                <h2>Eventos</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Género</th>
+                            <th>Tamaño</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Ubicación</th>
+                            <th>Duración</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="evento : ${listaEvento}">
+                            <td th:text=${evento.nombre}></td>
+                            <td th:text=${evento.genero.descripcion}></td>
+                            <td th:text=${evento.tamanio.descripcion}></td>
+                            <td th:text=${evento.fecha}></td>
+                            <td th:text=${evento.hora}></td>
+                            <td th:text=${evento.ubicacion}></td>
+                            <td th:text=${evento.duracion.descripcion}></td>
+                            <td><a class="btn btn-info"
+                                    th:href="@{/registrarEvento/{id}(id=${evento.id})}">Actualizar</a></td>
+                            <td><a class="btn btn-danger"
+                                    th:href="@{/eliminarEvento/{id}(id=${evento.id})}">Eliminar</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </main>
+
+    <div th:insert="~{/layout/administrador/template_admin.html::footer}">
+
+    </div>
+
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/jquery.sticky.js}"></script>
+    <script th:src="@{/js/click-scroll.js}"></script>
+    <script th:src="@{/js/custom.js}"></script>
+    </div>
+</body>
+
+</html>

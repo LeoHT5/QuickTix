@@ -1,0 +1,86 @@
+<!<!DOCTYPE html>
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Quicktix</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;400;700&display=swap" rel="stylesheet">
+
+        <link href="css/templatemo-festava-live.css" rel="stylesheet">
+        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+        <link th:href="@{/css/bootstrap-icons.css}" rel="stylesheet">
+        <link th:href="@{/css/template-ticket.css}" rel="stylesheet">
+
+
+    </head>
+
+    <body>
+        <main>
+            <div th:insert="~{/layout/template_user.html::header}">
+
+            </div>
+
+            <section class="ticket-section section-padding">
+                <div class="section-overlay"></div>
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-10 mx-auto">
+
+                            <h2 class="text-center mb-4"> Iniciar Sesion </h2>
+
+                            <form th:action="@{/sesion}" class="custom-form ticket-form mb-5 mb-lg-0"
+                                th:object="${usuario}" method="post">
+
+                                <div class="ticket-form-body">
+
+                                    <input type="text" name="correo" id="correo" class="form-control"
+                                        placeholder="Correo electronico" required th:field="*{correo}">
+                                    <small class="form-text text-danger" th:if="${#fields.hasErrors('correo')}"
+                                        th:errors="*{correo}">
+                                    </small>
+
+                                    <input type="password" class="form-control" name="password" placeholder="password"
+                                        required th:field="*{password}">
+                                    <small class="form-text text-danger" th:if="${#fields.hasErrors('password')}"
+                                        th:errors="*{password}">
+                                    </small>
+
+                                    <input type="hidden" th:field="*{role}" id="role" name="role" />
+
+                                    <div class="col-lg-4 col-md-10 col-8 mx-auto">
+                                        <button type="submit" class="form-control">Iniciar Sesion</button>
+                                    </div>
+                                    <p class="p-sesion">Si no tienes una cuenta, Registrarse <a
+                                            href="/registrar/0">aquí</a></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+            </section>
+        </main>
+
+        <div th:insert="~{/layout/template_user.html::footer}">
+
+        </div>
+
+        <script th:src="@{/js/jquery.min.js}"></script>
+        <script th:src="@{/js/bootstrap.min.js}"></script>
+        <script th:src="@{/js/jquery.sticky.js}"></script>
+        <script th:src="@{/js/click-scroll.js}"></script>
+        <script th:src="@{/js/custom.js}"></script>
+
+    </body>
+
+    </html>

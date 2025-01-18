@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quicktix</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;400;700&display=swap" rel="stylesheet">
+
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{/css/bootstrap-icons.css}" rel="stylesheet">
+  <link th:href="@{/css/template-ticket.css}" rel="stylesheet">
+</head>
+
+<body>
+  <main>
+    <div th:insert="~{/layout/administrador/template_admin.html::header}">
+
+    </div>
+
+    <div class="container" id="container-evento">
+      <h2 class="h2">Registrarse</h2>
+      <form action="#" th:action="@{/registrarEvento}" class="form-group" th:object="${evento}" method="post">
+        <input type="hidden" th:field="*{id}" id="id" name="id" />
+
+        <div class="form-group">
+          <label for="nombre">Nombre de Evento</label>
+          <input type="text" class="form-control" id="nombre" th:field="*{nombre}" name="nombre" />
+          <small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">
+          </small>
+        </div>
+
+        <br />
+
+        <div class="form-group">
+          <label for="genero">Genero</label>
+          <select th:field="*{genero}" class="form-control" id="genero">
+            <option value="">Seleccione</option>
+            <option th:each="gen:${listaGenero}" th:value="${gen.id}" th:text="${gen.descripcion}" />
+          </select>
+          <small class="form-text text-danger" th:if="${#fields.hasErrors('genero')}" th:errors="*{genero}">
+          </small>
+        </div>
+        <br />
+
+        <div class="form-group">
+          <label for="tamanio">Tamaño</label>
+          <select th:field="*{tamanio}" class="form-control" id="tamanio">
+            <option value="">Seleccione</option>
+            <option th:each="tam:${listaTamanio}" th:value="${tam.id}" th:text="${tam.descripcion}" />
+          </select>
+          <small class="form-text text-danger" th:if="${#fields.hasErrors('tamanio')}" th:errors="*{tamanio}">
+          </small>
+        </div>
+        <br />
+
+        <div class="form-group">
+          <label for="fecha">Fecha</label>
+          <input type="text" class="form-control" id="fecha" th:field="*{fecha}" name="fecha" placeholder="dd/mm/yy" />
+          <small class="form-text text-danger" th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}">
+          </small>
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="hora">Hora</label>
+          <input type="text" class="form-control" id="hora" th:field="*{hora}" name="hora" placeholder="00:00" />
+          <small class="form-text text-danger" th:if="${#fields.hasErrors('hora')}" th:errors="*{hora}">
+          </small>
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="correo">Ubicación</label>
+          <input type="text" class="form-control" id="ubicacion" //exampleFormControlInput1 th:field="*{ubicacion}"
+            name="ubicacion" />
+          <small class="form-text text-danger" th:if="${#fields.hasErrors('ubicacion')}" th:errors="*{ubicacion}">
+          </small>
+        </div>
+        <br />
+
+        <div class="form-group">
+          <label for="duracion">Duración</label>
+          <select th:field="*{duracion}" class="form-control" id="duracion">
+            <option value="">Seleccione</option>
+            <option th:each="dur:${listaDuracion}" th:value="${dur.id}" th:text="${dur.descripcion}" />
+          </select>
+          <small class="form-text text-danger" th:if="${#fields.hasErrors('duracion')}" th:errors="*{duracion}">
+          </small>
+        </div>
+        <br />
+
+        <button type="submit" class="btn btn-success">Guardar</button>
+      </form>
+    </div>
+
+    <div th:insert="~{/layout/administrador/template_admin.html::footer}"></div>
+  </main>
+
+
+  <script th:src="@{/js/jquery.min.js}"></script>
+  <script th:src="@{/js/bootstrap.min.js}"></script>
+  <script th:src="@{/js/jquery.sticky.js}"></script>
+  <script th:src="@{/js/click-scroll.js}"></script>
+  <script th:src="@{/js/custom.js}"></script>
+
+</body>
+
+</html>

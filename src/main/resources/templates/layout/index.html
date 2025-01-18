@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Quicktix</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;400;700&display=swap" rel="stylesheet">
+
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/bootstrap-icons.css}" rel="stylesheet">
+    <link th:href="@{/css/template-ticket.css}" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <main>
+
+        <div th:insert="~{/layout/template_user.html::header}">
+
+        </div>
+
+
+        <section class="hero-section" id="section_1">
+            <div class="section-overlay"></div>
+
+            <div class="container d-flex justify-content-center align-items-center">
+                <div class="row">
+
+                    <div class="col-12 mt-auto mb-5 text-center">
+                        <small>Quicktix presenta</small>
+
+                        <h1 class="text-white mb-5">Tu pasaporte hacia experiencias inolvidables</h1>
+
+                        <a class="btn custom-btn smoothscroll" href="#section_2">Comencemos</a>
+                    </div>
+
+                    <div class="col-lg-12 col-12 mt-auto d-flex flex-column flex-lg-row text-center">
+                        <div class="date-wrap">
+                            <h5 class="text-white">
+                                <i class="custom-icon bi-clock me-2"></i>
+                                28 - 30, Noviembre 2024
+                            </h5>
+                        </div>
+
+                        <div class="location-wrap mx-auto py-3 py-lg-0">
+                            <h5 class="text-white">
+                                <i class="custom-icon bi-geo-alt me-2"></i>
+                                Bajada Balta, Miraflores
+                            </h5>
+                        </div>
+
+                        <div class="social-share">
+                            <ul class="social-icon d-flex align-items-center justify-content-center">
+                                <span class="text-white me-3">Compartir:</span>
+
+                                <li class="social-icon-item">
+                                    <a href="#" class="social-icon-link">
+                                        <span class="bi-facebook"></span>
+                                    </a>
+                                </li>
+
+                                <li class="social-icon-item">
+                                    <a href="#" class="social-icon-link">
+                                        <span class="bi-twitter"></span>
+                                    </a>
+                                </li>
+
+                                <li class="social-icon-item">
+                                    <a href="#" class="social-icon-link">
+                                        <span class="bi-instagram"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-wrap">
+                <video autoplay="" loop="" muted="" class="custom-video" poster="">
+                    <source th:src="@{/video/pexels-2022395.mp4}" type="video/mp4">
+
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+
+        <section class="about-section section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 col-12 mb-4 mb-lg-0 d-flex align-items-center">
+                        <div class="services-info">
+                            <h2 class="text-white mb-4">Acerca de Quicktix 2024</h2>
+
+                            <p class="text-white">Quicktix es una plataforma en línea especializada en la venta de
+                                entradas para conciertos y eventos musicales. Ofrecemos a los amantes de la música la
+                                oportunidad de asegurar sus lugares en los eventos más emocionantes y populares. Con una
+                                interfaz fácil de usar, los usuarios pueden explorar una amplia variedad de conciertos,
+                                desde artistas locales hasta estrellas internacionales.</p>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-12">
+                        <div class="about-text-wrap">
+                            <img th:src="@{/images/artists/Bruno Mars.jpg}" class="about-image img-fluid">
+
+                            <div class="about-text-info d-flex">
+                                <div class="d-flex">
+                                    <i class="about-text-icon bi-person"></i>
+                                </div>
+
+
+                                <div class="ms-4">
+                                    <h3>Un momento feliz</h3>
+
+                                    <p class="mb-0">su increíble experiencia festivalera con nosotros</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section class="artists-section section-padding" id="section_3">
+            <div class="container">
+                <div class="row justify-content-center">
+
+                    <div class="col-12 text-center">
+                        <h2 class="mb-4">Conoce a los artistas</h1>
+                    </div>
+
+                    <div class="col-lg-5 col-12">
+                        <div class="artists-thumb">
+                            <div class="artists-image-wrap">
+                                <img th:src="@{/images/artists/Michael_Jackson_Dangerous_World_Tour_1993_cropped.png}"
+                                    class="artists-image img-fluid">
+                            </div>
+
+                            <div class="artists-hover">
+                                <p>
+                                    <strong>Nombre:</strong>
+                                    Michael Jackson
+                                </p>
+
+                                <p>
+                                    <strong>Cumpleaños:</strong>
+                                    Agosto 29, 1958
+                                </p>
+
+                                <p>
+                                    <strong>Musica:</strong>
+                                    Pop, R&amp;B
+                                </p>
+
+                                <hr>
+
+                                <p class="mb-0">
+                                    <strong>Youtube:</strong>
+                                    <a href="https://www.youtube.com/channel/UC5OrDvL9DscpcAstz7JnQGA"
+                                        target="_blank">Michael Jackson
+                                        Official</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 col-12">
+                        <div class="artists-thumb">
+                            <div class="artists-image-wrap">
+                                <img th:src="@{/images/artists/gettyimages-1145758764-594x594_wide-11eeb25b9bf5923a16fe9216839e6e821b713822.jpg}"
+                                    class="artists-image img-fluid">
+                            </div>
+
+                            <div class="artists-hover">
+                                <p>
+                                    <strong>Nombre:</strong>
+                                    Lil Nas X
+                                </p>
+
+                                <p>
+                                    <strong>Cumpleaños:</strong>
+                                    Abril 09, 1999
+                                </p>
+
+                                <p>
+                                    <strong>Musica:</strong>
+                                    Hip-hop
+                                </p>
+
+                                <hr>
+
+                                <p class="mb-0">
+                                    <strong>Youtube:</strong>
+                                    <a href="https://www.youtube.com/channel/UC_uMv3bNXwapHl8Dzf2p01Q"
+                                        target="_blank">Lil Nas X Official</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="artists-thumb">
+                            <img th:src="@{/images/artists/Eminem-1024x750-1.jpg}" class="artists-image img-fluid">
+
+                            <div class="artists-hover">
+                                <p>
+                                    <strong>Nombre:</strong>
+                                    Eminem
+                                </p>
+
+                                <p>
+                                    <strong>Cumpleaños:</strong>
+                                    Octubre 17, 1972
+                                </p>
+
+                                <p>
+                                    <strong>Musica:</strong>
+                                    Rap
+                                </p>
+
+                                <hr>
+
+                                <p class="mb-0">
+                                    <strong>Youtube:</strong>
+                                    <a href="https://www.youtube.com/channel/UCfM3zsQsOnfWNUppiycmBuw"
+                                        target="_blank">Eminem Official</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section class="schedule-section section-padding" id="section_4">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-12 text-center">
+                        <h2 class="text-white mb-4">Calendario</h1>
+
+                            <div class="table-responsive">
+                                <table class="schedule-table table table-dark">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Fecha</th>
+
+                                            <th scope="col">Miercoles</th>
+
+                                            <th scope="col">Jueves</th>
+
+                                            <th scope="col">Viernes</th>
+
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Dia 1</th>
+
+                                            <td class="table-background-image-wrap pop-background-image">
+                                                <h3>Pop Night</h3>
+
+                                                <p class="mb-2">5:00 - 7:00 PM</p>
+
+                                                <p>Michael Jackson</p>
+
+                                                <div class="section-overlay"></div>
+                                            </td>
+
+                                            <td style="background-color: #F3DCD4"></td>
+
+                                            <td class="table-background-image-wrap rock-background-image">
+                                                <h3>Hip-hop</h3>
+
+                                                <p class="mb-2">7:00 - 11:00 PM</p>
+
+                                                <p>Lil Nas X</p>
+
+                                                <div class="section-overlay"></div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row">Dia 2</th>
+
+                                            <td style="background-color: #ECC9C7"></td>
+
+                                            <td>
+                                                <h3>DJ Night</h3>
+
+                                                <p class="mb-2">6:30 - 9:30 PM</p>
+
+                                                <p>DJ Peligro</p>
+                                            </td>
+
+                                            <td style="background-color: #D9E3DA"></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row">Dia 3</th>
+
+                                            <td class="table-background-image-wrap country-background-image">
+                                                <h3>Rap</h3>
+
+                                                <p class="mb-2">4:30 - 7:30 PM</p>
+
+                                                <p>Eminem</p>
+
+                                                <div class="section-overlay"></div>
+                                            </td>
+
+                                            <td style="background-color: #D1CFC0"></td>
+
+                                            <td>
+                                                <h3>Free Styles</h3>
+
+                                                <p class="mb-2">6:00 - 10:00 PM</p>
+
+                                                <p>FMS Peru</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="pricing-section section-padding section-bg" id="section_5">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-8 col-12 mx-auto">
+                        <h2 class="text-center mb-4">Plan</h2>
+                    </div>
+
+                    <div class="col-lg-6 col-12">
+                        <div class="pricing-thumb">
+                            <div class="d-flex">
+                                <div>
+                                    <h3><small>Estandar</small> S/ 120.00</h3>
+
+                                    <p>Incluye:</p>
+                                </div>
+
+                                <p class="pricing-tag ms-auto">Ahorra hasta <span>50%</span></h2>
+                            </div>
+
+                            <ul class="pricing-list mt-3">
+                                <li class="pricing-list-item">plataforma para clientes potenciales</li>
+
+                                <li class="pricing-list-item">experiencia digital</li>
+
+                                <li class="pricing-list-item">sonido de alta calidad</li>
+
+                                <li class="pricing-list-item">contenido estándar</li>
+                            </ul>
+
+                            <a class="link-fx-1 color-contrast-higher mt-4" href="/venta/0">
+                                <span>Comprar</span>
+                                <svg class="icon" viewBox="0 0 32 32" aria-hidden="true">
+                                    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="16" cy="16" r="15.5"></circle>
+                                        <line x1="10" y1="18" x2="16" y2="12"></line>
+                                        <line x1="16" y1="12" x2="22" y2="18"></line>
+                                    </g>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-12 mt-4 mt-lg-0">
+                        <div class="pricing-thumb">
+                            <div class="d-flex">
+                                <div>
+                                    <h3><small>Premium</small> S/ 240.00</h3>
+
+                                    <p>Incluye</p>
+                                </div>
+                            </div>
+
+                            <ul class="pricing-list mt-3">
+                                <li class="pricing-list-item">experiencia digital</li>
+
+                                <li class="pricing-list-item">Meet&amp;Greet</li>
+
+                                <li class="pricing-list-item">VIP</li>
+
+                                <li class="pricing-list-item">contenido premium</li>
+
+                                <li class="pricing-list-item">asistencia por chat en directo</li>
+                            </ul>
+
+                            <a class="link-fx-1 color-contrast-higher mt-4" href="/venta/0">
+                                <span>Comprar</span>
+                                <svg class="icon" viewBox="0 0 32 32" aria-hidden="true">
+                                    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="16" cy="16" r="15.5"></circle>
+                                        <line x1="10" y1="18" x2="16" y2="12"></line>
+                                        <line x1="16" y1="12" x2="22" y2="18"></line>
+                                    </g>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div th:insert="~{/layout/template_user.html::footer}">
+
+    </div>
+
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/jquery.sticky.js}"></script>
+    <script th:src="@{/js/click-scroll.js}"></script>
+    <script th:src="@{/js/custom.js}"></script>
+
+</body>
+
+</html>
